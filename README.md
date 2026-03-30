@@ -1,35 +1,90 @@
-# Large Language Model from Scratch
+# Large Language Model from Scratch (Transformer)
 
-A simple and educational implementation of a decoder-only Transformer (GPT-style LLM) built from scratch.
+## 🚀 Overview
+This project implements a decoder-only Transformer (GPT-style LLM) from scratch using PyTorch. The goal was to deeply understand how LLMs work internally and to analyze how architectural and training choices affect performance.
 
 ---
 
-## 📌 Activation Function Comparison
+## 📌 Visual Understanding
+
+### Activation Function Comparison
 <img src="https://raw.githubusercontent.com/shourya5204/Large-Language-Model-from-Scratch/main/assets/geluvsrelu.png" width="450">
 
-## 📌 GPT Model Stages
+### GPT Model Stages
 <img src="https://raw.githubusercontent.com/shourya5204/Large-Language-Model-from-Scratch/main/assets/gptmodel_stages.png" width="450">
 
-## 📌 Transformer Architecture
+### Transformer Architecture
 <img src="https://raw.githubusercontent.com/shourya5204/Large-Language-Model-from-Scratch/main/assets/transformer_arch.png" width="450">
 
 ---
 
-## 📌 What This Project Covers
-- Basic tokenization  
-- Embedding layer implementation  
-- Self-attention and multi-head attention  
-- Transformer decoder blocks  
-- Training loop and loss calculation  
-- Text generation using the trained model 
-
-Everything is built step-by-step for clarity.
+## 🧠 Key Features
+- Built a transformer-based LLM from scratch:
+  - Multi-head self-attention
+  - Positional embeddings
+  - Feedforward layers (GELU)
+  - Layer normalization
+- Custom training loop for next-token prediction
+- Text generation using temperature + top-k sampling
 
 ---
 
-## ▶️ Run the Project
+## 📊 Experiments & Analysis
+
+### 🎯 Objective
+To evaluate how **model depth impacts performance and compute cost**
+
+---
+
+### 📈 Key Results
+
+| Layers | Perplexity | Training Time |
+|--------|-----------|--------------|
+| 1 | ~28 | ~20s |
+| 2 | 248 | 3.87s |
+| 3 | 223 | 11.18s |
+| 4 | 195 → **10 (optimized)** | 24.11s |
+| 5 | ~8 | Higher |
+| 6 | ~6–7 | Highest |
+
+---
+
+### 📉 Performance vs Compute Tradeoff
+
+![Tradeoff Graph](experiments/tradeoff.png)
+
+---
+
+## 🧠 Key Insights
+
+- Increasing model depth improves performance (lower perplexity)
+- Early layers provide the most significant gains
+- Beyond a certain depth, improvements **diminish while compute increases**
+- Optimal balance observed around **4–5 layers**
+- Increasing dataset size and training duration reduced perplexity from **~195 → ~10 (~95% improvement)**
+
+---
+
+## 🧪 Qualitative Evaluation
+
+Generated text quality improves significantly with model depth:
+
+- **2 layers:** repetitive and incoherent output  
+- **3 layers:** partial structure and grammar  
+- **4+ layers:** structured dialogue and meaningful text generation  
+
+---
+
+## 🏗️ Tech Stack
+- Python  
+- PyTorch  
+- NumPy  
+- Matplotlib  
+
+---
+
+## ▶️ How to Run
 
 ```bash
 git clone https://github.com/shourya5204/Large-Language-Model-from-Scratch.git
 cd Large-Language-Model-from-Scratch
-Finally run the LLM_from_scratch,ipynb file on your own data
