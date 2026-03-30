@@ -85,6 +85,59 @@ Generated text quality improves significantly with model depth:
 
 ## ▶️ How to Run
 
-```bash
-git clone https://github.com/shourya5204/Large-Language-Model-from-Scratch.git
-cd Large-Language-Model-from-Scratch
+### 1. Clone the Repository
+git clone https://github.com/shourya5204/Large-Language-Model-from-Scratch.git  
+cd Large-Language-Model-from-Scratch  
+
+---
+
+### 2. Create Virtual Environment (Recommended)
+python3 -m venv venv  
+source venv/bin/activate   # For Mac/Linux  
+
+---
+
+### 3. Install Dependencies
+pip install -r requirements.txt  
+
+---
+
+### 4. Download Dataset
+This project uses the Tiny Shakespeare dataset for training.
+
+wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt  
+
+---
+
+### 5. Run the Project
+Launch Jupyter Notebook:
+
+jupyter notebook  
+
+Then open and run:
+
+notebooks/llm_experiments.ipynb  
+
+Run all cells sequentially to:
+- Train the model  
+- Perform experiments  
+- Generate text  
+- Visualize results  
+
+---
+
+## ⚡ Run on Google Colab (Recommended)
+
+For faster training using GPU:
+
+1. Open Google Colab  
+2. Upload `notebooks/llm_experiments.ipynb`  
+3. Enable GPU: Runtime → Change runtime type → GPU  
+4. Run all cells  
+
+---
+
+## 📌 Notes
+- Ensure the dataset file (`input.txt`) is in the same directory as the notebook  
+- Training time depends on hardware (CPU vs GPU)  
+- GPU (Colab) is recommended for faster experimentation  
